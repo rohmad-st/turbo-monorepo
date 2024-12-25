@@ -1,84 +1,56 @@
-# Turborepo starter
+# Monorepo for Frontend & Backend Applications
 
-This is an official starter Turborepo.
+This repository is structured as a monorepo using **Turborepo** to manage both the frontend (Next.js) and backend (Express.js) applications. By leveraging shared models, utilities, and configurations, the architecture promotes reusability and consistency across the codebase.
 
-## Using this example
+## **Architecture Overview**
 
-Run the following command:
+The repository contains the following apps and packages:
 
-```sh
-npx create-turbo@latest
+- **apps/frontend**: A Next.js application for the client-facing frontend, utilizing React and Material-UI.
+- **apps/backend**: An Express.js server application that provides RESTful APIs and interacts with Firebase for authentication.
+- **packages/ui**: A library of reusable UI components built with Material-UI and styled with custom themes, used in the frontend apps.
+- **packages/models**: Shared TypeScript interfaces and types used across the apps for consistency.
+- **packages/eslint-config**: Shared configurations of ESLint settings.
+- **packages/typescript-config**: Shared configurations of `tsconfig` settings.
+
+Turborepo handles the build and development processes for the monorepo, ensuring efficient dependency management and build caching.
+
+---
+
+## **Getting Started**
+
+### **Prerequisites**
+
+Ensure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [npm](https://www.npmjs.com/) (v7 or higher)
+- Firebase CLI (`npm install -g firebase-tools`)
+
+### **Installation**
+
+#### 1. Clone the repository:
+
+```bash
+git clone https://github.com/rohmad-st/turbo-monorepo.git
+cd turbo-monorepo
 ```
 
-## What's inside?
+#### 2. Install dependencies using npm:
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```bash
+npm install
 ```
 
-### Develop
+#### 3. Running Locally
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```bash
+# run frontend
+npm run dev:frontend
+# run backend
+npm run dev:backend
+# run both frontend & backend
+npm run dev
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+_By default._ The frontend will be available at [http://localhost:3001](http://localhost:3001), and the backend will run at [http://localhost:3000](http://localhost:3001).

@@ -1,5 +1,5 @@
+import { User, UserData } from '@repo/models';
 import { firestore } from '../config/firebaseConfig';
-import { User, UserData } from '../entities/user';
 
 const USERS_COLLECTION = 'USERS';
 

@@ -61,7 +61,6 @@ const MainPage = () => {
       } else {
         setProfile(currentUser);
         setUser(currentUser);
-        fetchData();
       }
       setLoading(false);
     });
